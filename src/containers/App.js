@@ -24,12 +24,14 @@ class App extends Component {
     }
 
     render() {
-        const filteredRobots = this.state.robots.filter(robot => {
+        const { robots, searchfield } = this.state;
+
+        const filteredRobots = robots.filter(robot => {
             return robot.name.toLowerCase()
-                .includes(this.state.searchfield.toLowerCase());
+                .includes(searchfield.toLowerCase());
         });
 
-        return !this.state.robots.length ? 
+        return !robots.length ? 
         <h1 className="tc f1">Loading</h1> :         
         (
         <div className="tc">
